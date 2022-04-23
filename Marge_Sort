@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ExampleClass1 {
+    private final ArrayList<Integer> arrayToSort;
+
+    public ExampleClass1(ArrayList<Integer> arrayToSort) {
+        this.arrayToSort = arrayToSort;
+    }
+
+    public ArrayList<Integer> getArrayAfterSorting() {
+        return arrayToSort;
+    }
+
+    public void divideArrayElements(int indexStart, int indexEnd) {
+
+        if (indexStart < indexEnd && (indexEnd - indexStart) >= 1) {
+            int middleElement = (indexEnd + indexStart) / 2;
+
+            divideArrayElements(indexStart, middleElement);
+            divideArrayElements(middleElement + 1, indexEnd);
+
+            mergeArrayElements(indexStart, middleElement, indexEnd);
+        }
+    }
+
+    public void mergeArrayEl…
